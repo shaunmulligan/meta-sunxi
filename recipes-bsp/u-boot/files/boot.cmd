@@ -73,7 +73,6 @@ else
 		source ${load_addr}
 	fi
 fi
-load ${devtype} 0 ${fdt_addr_r} ${prefix}dtb/${fdtfile}
-load mmc 0:1 ${kernel_addr_r} uImage || load mmc 0:1 ${kernel_addr_r} ${prefix}uImage
-printenv 
-bootz ${kernel_addr_r} - ${fdt_addr_r} || bootm ${kernel_addr_r} - ${fdt_addr_r}
+
+load ${devtype} 0 ${kernel_addr_r} ${prefix}uImage
+bootm ${kernel_addr_r} - ${fdt_addr_r}
