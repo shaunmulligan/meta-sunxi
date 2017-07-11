@@ -40,9 +40,6 @@ setenv bootargs "root=${rootdev} rootwait rootfstype=${rootfstype} ${consoleargs
 if test "${disp_mem_reserves}" = "off"; then setenv bootargs "${bootargs} sunxi_ve_mem_reserve=0 sunxi_g2d_mem_reserve=0 sunxi_fb_mem_reserve=16"; fi
 if test "${docker_optimizations}" = "on"; then setenv bootargs "${bootargs} cgroup_enable=memory swapaccount=1"; fi
 
-load ${devtype} 0 ${ramdisk_addr_r} ${prefix}uInitrd
-load ${devtype} 0 ${kernel_addr_r} ${prefix}zImage
-
 echo "Found mainline kernel configuration"
 load ${devtype} 0 ${fdt_addr_r} ${prefix}dtb/${fdtfile}
 fdt addr ${fdt_addr_r}
